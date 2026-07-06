@@ -59,3 +59,63 @@ bool Database::executeQuery(const std::string &query)
     }
     return true;
 }
+bool Database::addAccount(const Account &account)
+{
+    sqlite3_stmt *stmt = nullptr;
+    std::string sql =
+        "INSERT INTO accounts(account_number, first_name, last_name, pin, balance) "
+        "VALUES (?, ?, ?, ?, ?);";
+
+    int result = sqlite3_prepare_v2(
+        db,
+        sql.c_str(),
+        -1,
+        &stmt,
+        nullptr);
+
+    if (result != SQLITE_OK)
+    {
+        std::cout << "Failed to prepare statement.\n";
+        std::cout << sqlite3_errmsg(db) << std::endl;
+        return false;
+    }
+    sqlite3_bind_int(stmt, 1, account.getAccountNumber());
+
+    sqlite3_bind_text(
+        stmt,
+        2,
+        account.getFirstName().c_str(),
+        -1,
+        SQLITE_TRANSIENT);
+
+    sqlite3_bind_text(
+        stmt,
+        3,
+        account.getLastName().c_str(),
+        -1,
+        SQLITE_TRANSIENT);
+
+    sqlite3_bind_text(
+        stmt,
+        4,
+        account.getPin().c_str(),
+        -1,
+        SQLITE_TRANSIENT);
+
+    sqlite3_bind_double(stmt, 5, account.getBalance());
+
+    result = sqlite3_step(stmt);
+
+    sqlite3_finalize(stmt);
+
+    if (result != SQLITE_DONE)
+    {
+        std::cout << "Failed to insert account.\n";
+        std::cout << "SQLite Error: " << sqlite3_errmsg(db) << std::endl;
+        return false;
+    }
+
+    std::cout << "Account created successfully!\n";
+
+    return true;
+}

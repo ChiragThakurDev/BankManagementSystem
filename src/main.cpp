@@ -1,10 +1,38 @@
 #include <iostream>
-#include "Database.h"
+#include "BankManager.h"
+
+using namespace std;
 
 int main()
 {
-    Database database("database/bank.db");
+    BankManager manager;
+    int choice;
+    do
+    {
+        cout << "\n===============================\n";
+        cout << "    BANK MANAGEMENT SYSTEM\n";
+        cout << "===============================\n";
+        cout << "1. Create Account\n";
+        cout << "2. Exit\n";
+        cout << "===============================\n";
+        cout << "Enter Choice: ";
+        cin >> choice;
 
-    database.connect();
+        switch (choice)
+        {
+        case 1:
+            manager.createAccount();
+            break;
+
+        case 2:
+            cout << "\nThank You!\n";
+            break;
+
+        default:
+            cout << "\nInvalid Choice!\n";
+        }
+
+    } while (choice != 2);
+
     return 0;
 }
