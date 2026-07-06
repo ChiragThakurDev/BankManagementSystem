@@ -1,5 +1,5 @@
 # ==========================================
-# Student Management System - Makefile
+# Bank Management System - Makefile
 # ==========================================
 
 # Compilers
@@ -23,7 +23,7 @@ SQLITE_SRC = $(SQLITE_DIR)/sqlite3.c
 SQLITE_OBJ = $(SQLITE_DIR)/sqlite3.o
 
 # Output Executable
-TARGET = $(BUILD_DIR)/StudentManagementSystem.exe
+TARGET = $(BUILD_DIR)/BankManagementSystem.exe
 
 # ==========================================
 # Build
@@ -56,4 +56,4 @@ run: all
 clean:
 	-if exist src\*.o del /Q src\*.o
 	-if exist libs\sqlite\*.o del /Q libs\sqlite\*.o
-	-if exist build\StudentManagementSystem.exe del /Q build\StudentManagementSystem.exe
+	-if exist build\BankManagementSystem.exe del /Q build\BankManagementSystem.exe
