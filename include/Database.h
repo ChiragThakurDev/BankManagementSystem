@@ -21,6 +21,7 @@ public:
     bool executeQuery(const std::string &query);
 
     bool addAccount(const Account &account);
+    void displayAccounts();
 };
 
 #endif

@@ -37,3 +37,8 @@ void BankManager::createAccount()
         std::cout << "\n Failed to Create Account!\n";
     }
 }
+
+void BankManager::displayAccounts()
+{
+    database.displayAccounts();
+}

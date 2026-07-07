@@ -13,7 +13,9 @@ int main()
         cout << "    BANK MANAGEMENT SYSTEM\n";
         cout << "===============================\n";
         cout << "1. Create Account\n";
-        cout << "2. Exit\n";
+        cout << "2. Display Accounts\n";
+        cout << "3. Exit\n";
+
         cout << "===============================\n";
         cout << "Enter Choice: ";
         cin >> choice;
@@ -25,6 +27,10 @@ int main()
             break;
 
         case 2:
+            manager.displayAccounts();
+            break;
+
+        case 3:
             cout << "\nThank You!\n";
             break;
 
@@ -32,7 +38,7 @@ int main()
             cout << "\nInvalid Choice!\n";
         }
 
-    } while (choice != 2);
+    } while (choice != 3);
 
     return 0;
 }

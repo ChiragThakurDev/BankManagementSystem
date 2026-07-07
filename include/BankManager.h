@@ -12,6 +12,7 @@ public:
     BankManager();
 
     void createAccount();
+    void displayAccounts();
 };
 
 #endif
