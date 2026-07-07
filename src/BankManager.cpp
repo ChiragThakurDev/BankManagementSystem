@@ -42,3 +42,16 @@ void BankManager::displayAccounts()
 {
     database.displayAccounts();
 }
+
+void BankManager::searchAccount()
+{
+    int accountNumber;
+
+    std::cout << "\nEnter Account Number: ";
+    std::cin >> accountNumber;
+
+    if (!database.searchAccount(accountNumber))
+    {
+        std::cout << "\nAccount not found!\n";
+    }
+}

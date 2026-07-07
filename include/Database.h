@@ -22,6 +22,7 @@ public:
 
     bool addAccount(const Account &account);
     void displayAccounts();
+    bool searchAccount(int accountNumber);
 };
 
 #endif

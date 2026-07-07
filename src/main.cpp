@@ -14,7 +14,8 @@ int main()
         cout << "===============================\n";
         cout << "1. Create Account\n";
         cout << "2. Display Accounts\n";
-        cout << "3. Exit\n";
+        cout << "3. Search Account\n";
+        cout << "4. Exit\n";
 
         cout << "===============================\n";
         cout << "Enter Choice: ";
@@ -31,6 +32,10 @@ int main()
             break;
 
         case 3:
+            manager.searchAccount();
+            break;
+
+        case 4:
             cout << "\nThank You!\n";
             break;
 
@@ -38,7 +43,7 @@ int main()
             cout << "\nInvalid Choice!\n";
         }
 
-    } while (choice != 3);
+    } while (choice != 4);
 
     return 0;
 }

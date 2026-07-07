@@ -13,6 +13,7 @@ public:
 
     void createAccount();
     void displayAccounts();
+    void searchAccount();
 };
 
 #endif
